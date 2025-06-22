@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>New York Lore – Stories</title>
+  <meta name="description" content="Explore hidden stories of NYC: murals, legends, and art in the streets.">
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700&family=Lora&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="/">NewYorkLore</a>
+    <div>
+      <a href="/">Home</a>
+      <a href="/stories/index.html">Stories</a>
+      <a href="/submit.html">Submit</a>
+    </div>
+  </nav>
+</header>
+
+<div class="story-grid" id="storyGrid"></div>
+
+<footer>
+  <p>Share your story and discover more at NewYorkLore.com.</p>
+</footer>
+
+<script>
+const stories = [
+  { id: 1, title: 'Hidden Subway Murals', snippet: 'Tucked behind turnstiles at 14th Street...', imageUrl: 'https://via.placeholder.com/300x200?text=Story+1' },
+  { id: 2, title: 'The Ghosts of SoHo', snippet: 'Old lofts harbor tales from NYC\'s past...', imageUrl: 'https://via.placeholder.com/300x200?text=Story+2' },
+  { id: 3, title: 'Brooklyn\'s Secret Garden', snippet: 'A rooftop haven hidden in Williamsburg...', imageUrl: 'https://via.placeholder.com/300x200?text=Story+3' }
+];
+
+const grid = document.getElementById('storyGrid');
+stories.forEach(({ id, title, snippet, imageUrl }) => {
+  const card = document.createElement('div');
+  card.className = 'card';
+  card.innerHTML = `
+    <img src="${imageUrl}" alt="${title}" />
+    <div class="card-content">
+      <h2>${title}</h2>
+      <p>${snippet}</p>
+      <a class="read-more" href="/stories/reader.html?id=${id}">Read More</a>
+    </div>
+  `;
+  grid.appendChild(card);
+});
+</script>
+
+</body>
+</html>
